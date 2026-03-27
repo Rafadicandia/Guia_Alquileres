@@ -1,0 +1,1182 @@
+/* ========================================
+   ESTILOS - GUÍA BIEN SEGURO
+   Estilo Notion - Limpio y Minimalista
+   ======================================== */
+
+/* Variables - Paleta Notion */
+:root {
+    /* Colores principales */
+    --primary: #c9707a;
+    --primary-dark: #a85a65;
+    --primary-light: #e8a5ad;
+    --primary-soft: #faf0f2;
+    
+    /* Colores neutros - Estilo Notion */
+    --bg-light: #f7f6f3;
+    --bg-white: #ffffff;
+    --bg-notion: #fbfbfa;
+    --text-dark: #37352f;
+    --text-light: #787774;
+    --text-muted: #9b9a97;
+    --border-subtle: #e9e9e7;
+    --border-soft: #f0f0ef;
+    
+    /* Estados */
+    --success: #4a9d6b;
+    --warning: #dfb300;
+    --danger: #d44c47;
+    --info: #6b7c93;
+    
+    /* Dimensiones */
+    --radius: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --sidebar-width: 280px;
+    --header-height: 60px;
+}
+
+/* Reset y base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: var(--bg-notion);
+    color: var(--text-dark);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ========================================
+   APP LAYOUT
+   ======================================== */
+.app {
+    display: flex;
+    min-height: 100vh;
+    background: var(--bg-notion);
+}
+
+/* ========================================
+   SIDEBAR
+   ======================================== */
+.sidebar {
+    width: var(--sidebar-width);
+    background: var(--bg-white);
+    border-right: 1px solid var(--border-subtle);
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.sidebar-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.sidebar-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 0.02em;
+}
+
+.menu-toggle {
+    display: none;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.menu-toggle:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* Navigation Groups */
+.sidebar-nav {
+    padding: 12px 8px;
+}
+
+.nav-group {
+    margin-bottom: 8px;
+}
+
+.nav-group-title {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 8px 10px;
+    margin-bottom: 2px;
+}
+
+.nav-modules {
+    list-style: none;
+}
+
+.nav-module-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    text-align: left;
+    transition: all 0.15s;
+}
+
+.nav-module-btn:hover {
+    background: var(--bg-light);
+}
+
+.nav-module-btn.active {
+    background: var(--primary-soft);
+    color: var(--primary-dark);
+    font-weight: 500;
+}
+
+.nav-module-btn .module-icon {
+    width: 18px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.nav-module-btn.active .module-icon {
+    color: var(--primary);
+}
+
+.nav-module-btn .module-title {
+    flex: 1;
+}
+
+.nav-module-btn .active-indicator {
+    color: var(--primary);
+    font-size: 0.75rem;
+}
+
+/* ========================================
+   CONTENT AREA
+   ======================================== */
+.content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    padding: 40px 48px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.content-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: 40px 48px;
+    margin-bottom: 16px;
+    animation: fadeIn 0.2s ease;
+    border: 1px solid var(--border-soft);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   STAGE HEADER - Estilo Notion
+   ======================================== */
+.stage-header {
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.stage-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-top: 8px;
+    line-height: 1.3;
+}
+
+.stage-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: var(--radius);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: var(--text-muted);
+}
+
+/* ========================================
+   WELCOME SECTION - Notion Style
+   ======================================== */
+.welcome-header {
+    text-align: center;
+    padding: 24px 0 32px;
+    border-bottom: 1px solid var(--border-soft);
+    margin-bottom: 28px;
+}
+
+.welcome-header h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.welcome-header .subtitle {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* ========================================
+   INFO CARDS - Estilo Notion
+   Minimal, sin bordes pesados
+   ======================================== */
+.info-card {
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border-radius: var(--radius-md);
+    background: transparent;
+}
+
+.info-card.highlight {
+    background: var(--primary-soft);
+}
+
+.info-card.tip {
+    background: #fdfbf4;
+    border-left: 3px solid #e8dca8;
+}
+
+.info-card.warning {
+    background: #fef5f5;
+    border-left: 3px solid #f0b7b5;
+}
+
+.info-card.success {
+    background: #f2fcf5;
+    border-left: 3px solid #b8e4c4;
+}
+
+.info-card h3, .info-card h4 {
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.info-card p {
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+.info-card ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.info-card li {
+    margin-bottom: 6px;
+    color: var(--text-dark);
+}
+
+/* ========================================
+   FEATURE GRID - Notion Style
+   ======================================== */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.feature-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    border: 1px solid var(--border-soft);
+    transition: all 0.15s;
+}
+
+.feature-card:hover {
+    border-color: var(--border-subtle);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.feature-icon {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.feature-card h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+}
+
+.feature-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.portal-list {
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 8px;
+}
+
+.portal-list li {
+    padding: 3px 0;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.portal-list li:last-child {
+    border-bottom: none;
+}
+
+/* ========================================
+   KEY POINTS - Estilo Notion
+   ======================================== */
+.key-points {
+    margin: 24px 0;
+}
+
+.key-point {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    margin-bottom: 10px;
+    border: 1px solid var(--border-soft);
+}
+
+.key-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+    color: var(--primary);
+    margin-top: 2px;
+}
+
+.key-point h4 {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.key-point p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ========================================
+   DOC SECTIONS - Notion Style
+   ======================================== */
+.doc-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.doc-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    border: 1px solid var(--border-soft);
+}
+
+.doc-icon {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.doc-card h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.doc-card ul {
+    margin-left: 16px;
+}
+
+.doc-card li {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.doc-sub p {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+/* ========================================
+   GUARANTEE GRID - Notion Style
+   ======================================== */
+.guarantee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.guarantee-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    border: 1px solid var(--border-soft);
+    transition: all 0.15s;
+}
+
+.guarantee-card:hover {
+    border-color: var(--border-subtle);
+}
+
+.guarantee-card.special {
+    background: #fdfbf4;
+    border-color: #f0e8c8;
+}
+
+.guarantee-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.guarantee-icon {
+    font-size: 1rem;
+    color: var(--primary);
+}
+
+.guarantee-header h4 {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.guarantee-card p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.guarantee-details {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.guarantee-details span {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    background: var(--bg-light);
+    border-radius: var(--radius);
+    color: var(--text-muted);
+}
+
+/* ========================================
+   PROCESS FLOW - Notion Style
+   ======================================== */
+.process-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 28px 0;
+    flex-wrap: wrap;
+}
+
+.process-step {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+    max-width: 160px;
+}
+
+.step-number {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    margin: 0 auto 8px;
+    font-size: 0.85rem;
+}
+
+.process-step h4 {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.process-step p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+.process-arrow {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* ========================================
+   CHECKLIST - Notion Style
+   ======================================== */
+.checklist {
+    background: var(--primary-soft);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin: 24px 0;
+}
+
+.checklist h3 {
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.check {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.checklist-item p {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ========================================
+   COSTS GRID - Notion Style
+   ======================================== */
+.costs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.cost-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    border: 1px solid var(--border-soft);
+    text-align: left;
+}
+
+.cost-icon {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.cost-card h4 {
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.cost-amount {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+}
+
+.cost-card p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+.cost-note {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 10px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ========================================
+   MONTHLY COSTS - Notion Style
+   ======================================== */
+.monthly-costs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.monthly-cost-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-soft);
+}
+
+.monthly-cost-item.special {
+    background: #fdfbf4;
+    border-color: #f0e8c8;
+}
+
+.monthly-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+    color: var(--primary);
+    margin-top: 2px;
+}
+
+.monthly-info h4 {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.monthly-info p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.monthly-info ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.monthly-info li {
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    background: var(--bg-light);
+    padding: 3px 8px;
+    border-radius: var(--radius);
+}
+
+/* ========================================
+   ROLES GRID - Notion Style
+   ======================================== */
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.role-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    border: 1px solid var(--border-soft);
+    text-align: left;
+    transition: all 0.15s;
+}
+
+.role-card:hover {
+    border-color: var(--border-subtle);
+}
+
+.role-icon {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.role-card h4 {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+}
+
+.role-card p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+/* ========================================
+   LEGAL CARDS - Notion Style
+   ======================================== */
+.legal-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.legal-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    border: 1px solid var(--border-soft);
+}
+
+.legal-icon {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.legal-card h3 {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.legal-card p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.legal-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.legal-details span {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    background: var(--bg-light);
+    border-radius: var(--radius);
+    color: var(--text-muted);
+}
+
+/* ========================================
+   RESCISION OPTIONS - Notion Style
+   ======================================== */
+.rescision-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.rescision-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    border: 1px solid var(--border-soft);
+}
+
+.rescision-card h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.rescision-card ul {
+    margin-left: 14px;
+}
+
+.rescision-card li {
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* ========================================
+   CAUSALES - Notion Style
+   ======================================== */
+.causales-section {
+    margin: 24px 0;
+}
+
+.causales-section h3 {
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.causales-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+}
+
+.causal-item {
+    padding: 12px 14px;
+    background: #fef5f5;
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--danger);
+    font-size: 0.85rem;
+    color: #8b4a4a;
+    line-height: 1.5;
+}
+
+/* ========================================
+   CONSIDERATIONS - Notion Style
+   ======================================== */
+.considerations-section {
+    margin: 24px 0;
+}
+
+.considerations-section h3 {
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.considerations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.consideration-item {
+    display: flex;
+    gap: 10px;
+    padding: 12px 14px;
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-soft);
+}
+
+.consideration-icon {
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    color: var(--primary);
+    margin-top: 2px;
+}
+
+.consideration-item p {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+/* ========================================
+   TIPS GRID - Notion Style
+   ======================================== */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.tip-card {
+    background: #fdfbf4;
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    position: relative;
+    border: 1px solid #f0e8c8;
+}
+
+.tip-number {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.tip-card h4 {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    padding-right: 16px;
+}
+
+.tip-card p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+/* ========================================
+   FRAUD PREVENTION - Notion Style
+   ======================================== */
+.fraud-prevention {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.prevention-step {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    border: 1px solid var(--border-soft);
+    text-align: left;
+}
+
+.prevention-icon {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.prevention-step h4 {
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.prevention-step p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* ========================================
+   GLOSSARY - Notion Style
+   ======================================== */
+.glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.glossary-item {
+    padding: 12px 16px;
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-soft);
+}
+
+.glossary-term {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.glossary-def {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+/* ========================================
+   STEPS PREVIEW - Notion Style
+   ======================================== */
+.steps-preview {
+    margin: 24px 0;
+    text-align: center;
+}
+
+.steps-preview h4 {
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.steps-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.step-badge {
+    padding: 8px 14px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* ========================================
+   INFO NOTE - Notion Style
+   ======================================== */
+.info-note {
+    padding: 12px 16px;
+    margin-top: 16px;
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--text-muted);
+}
+
+.info-note h4 {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.info-note p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.2s;
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .content {
+        padding: 24px 20px;
+        margin-left: 0;
+    }
+    
+    .content-card {
+        padding: 24px 20px;
+    }
+}
+
+/* ========================================
+   NAVIGATION BUTTONS
+   ======================================== */
+.module-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-top: 8px;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.nav-btn:hover:not(.disabled) {
+    background: var(--primary-soft);
+    border-color: var(--primary-light);
+}
+
+.nav-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.nav-arrow {
+    font-size: 1rem;
+}
+
+.nav-info {
+    flex: 1;
+    text-align: center;
+}
+
+.nav-progress {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
